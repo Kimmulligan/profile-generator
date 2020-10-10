@@ -1,0 +1,22 @@
+{
+  "name": "profile-generator",
+  "version": "1.0.0",
+  "description": "H!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kimmulligan/profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kimmulligan/profile-generator/issues"
+  },
+  "homepage": "https://github.com/Kimmulligan/profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
