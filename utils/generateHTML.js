@@ -1,11 +1,77 @@
 function generateDynamicHTML(employeeArray) {
   console.log(employeeArray);
-  const staticHTML = generateStaticHTML()
-  let HTMLString = `
-`;
-return HTMLString
+  let staticHTML = generateStaticHTML();
+
+  for (let index = 0; index < employeeArray.length; index++) {
+    const teammate = employeeArray[index];
+    console.log(teammate);
+    if (teammate.title === "Manager") {
+      staticHTML += `<div class="card" style="width: 18rem">
+      <div id="cardHeading">
+        <h5 class="card-title">${teammate.name}</h5>
+        <h6 class="card-subtitle mb-2">${teammate.title}</h6>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${teammate.id}</li>
+          <li class="list-group-item">Email: <a href = "mailto:${teammate.email}">${teammate.email}</a></li>
+          <li class="list-group-item">Office Number: ${teammate.number}</li>
+        </ul>
+      </div>
+    </div>`;
+    } else if (teammate.title === "Engineer") {
+      staticHTML += `<div class="card" style="width: 18rem">
+      <div id="cardHeading">
+        <h5 class="card-title">${teammate.name}</h5>
+        <h6 class="card-subtitle mb-2">${teammate.title}</h6>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${teammate.id}</li>
+          <li class="list-group-item">Email: <a href = "mailto:${teammate.email}">${teammate.email}</a></li>
+          <li class="list-group-item">Github: <a href = "https://github.com/${teammate.github}">${teammate.github}</a></li>
+        </ul>
+      </div>
+    </div>`;
+    }else if (teammate.title === "Employee") {
+      staticHTML += `<div class="card" style="width: 18rem">
+      <div id="cardHeading">
+        <h5 class="card-title">${teammate.name}</h5>
+        <h6 class="card-subtitle mb-2">${teammate.title}</h6>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${teammate.id}</li>
+          <li class="list-group-item">Email: <a href = "mailto:${teammate.email}">${teammate.email}</a></li>
+          <li class="list-group-item">Github: <a href = "https://github.com/${teammate.github}">${teammate.github}</a></li>
+        </ul>
+      </div>
+    </div>`;
+    }
+    else
+    {
+      staticHTML += `<div class="card" style="width: 18rem">
+      <div id="cardHeading">
+        <h5 class="card-title">${teammate.name}</h5>
+        <h6 class="card-subtitle mb-2">${teammate.title}</h6>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${teammate.id}</li>
+          <li class="list-group-item">Email: <a href = "mailto:${teammate.email}">${teammate.email}</a></li>
+          <li class="list-group-item">School: ${teammate.school}</li>
+        </ul>
+      </div>
+    </div>`
+    }
+  }
+  staticHTML += `</section></main></body></html>`
+  console.log(staticHTML);
+  return staticHTML
+
+
 }
-function generateStaticHTML(){
+function generateStaticHTML() {
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +86,13 @@ function generateStaticHTML(){
       crossorigin="anonymous"
     />
     <style>
+      section{
+        display: flex;
+      }
+      .card
+    {
+      margin: 0 15px;
+    }
       #header {
         background: red;
         text-align: center;
@@ -38,11 +111,8 @@ function generateStaticHTML(){
         <h1 class="display-4">My Team</h1>
       </div>
       <section class="container-fluid">
-  `
-  return team .html
+  `;
 }
-//  
+//
 
 module.exports = generateDynamicHTML;
-
-
